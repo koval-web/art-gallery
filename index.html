@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Крафтовая Галерея Искусств</title>
+    <title>Авторская Галерея Искусств</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Outfit:wght@200;300;400&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="gallery-header scroll-animate">
         <h1>Галерея Искусств</h1>
-        <p>Уютная коллекция авторских картин</p>
+        <p>Чистое вдохновение в каждой линии</p>
     </header>
 
     <main class="gallery-container">
@@ -26,51 +26,39 @@
 
         <div class="gallery-grid scroll-animate">
             <div class="gallery-item" data-category="landscape" onclick="openModal(this)">
-                <div class="passepartout">
-                    <img src="https://picsum.photos/seed/art1/800/1000" alt="Пейзаж" loading="lazy">
-                    <div class="overlay"><span>Рассмотреть</span></div>
-                </div>
+                <img src="https://picsum.photos/seed/art1/800/1000" alt="Пейзаж" loading="lazy">
+                <div class="overlay"><span>Рассмотреть</span></div>
             </div>
             <div class="gallery-item" data-category="portrait" onclick="openModal(this)">
-                <div class="passepartout">
-                    <img src="https://picsum.photos/seed/art2/800/1000" alt="Портрет" loading="lazy">
-                    <div class="overlay"><span>Рассмотреть</span></div>
-                </div>
+                <img src="https://picsum.photos/seed/art2/800/1000" alt="Портрет" loading="lazy">
+                <div class="overlay"><span>Рассмотреть</span></div>
             </div>
             <div class="gallery-item" data-category="abstract" onclick="openModal(this)">
-                <div class="passepartout">
-                    <img src="https://picsum.photos/seed/art3/1000/1000" alt="Абстракция" loading="lazy">
-                    <div class="overlay"><span>Рассмотреть</span></div>
-                </div>
+                <img src="https://picsum.photos/seed/art3/1000/1000" alt="Абстракция" loading="lazy">
+                <div class="overlay"><span>Рассмотреть</span></div>
             </div>
             <div class="gallery-item" data-category="landscape" onclick="openModal(this)">
-                <div class="passepartout">
-                    <img src="https://picsum.photos/seed/art4/1000/1000" alt="Пейзаж" loading="lazy">
-                    <div class="overlay"><span>Рассмотреть</span></div>
-                </div>
+                <img src="https://picsum.photos/seed/art4/1000/1000" alt="Пейзаж" loading="lazy">
+                <div class="overlay"><span>Рассмотреть</span></div>
             </div>
             <div class="gallery-item" data-category="portrait" onclick="openModal(this)">
-                <div class="passepartout">
-                    <img src="https://picsum.photos/seed/art5/800/1000" alt="Портрет" loading="lazy">
-                    <div class="overlay"><span>Рассмотреть</span></div>
-                </div>
+                <img src="https://picsum.photos/seed/art5/800/1000" alt="Портрет" loading="lazy">
+                <div class="overlay"><span>Рассмотреть</span></div>
             </div>
             <div class="gallery-item" data-category="abstract" onclick="openModal(this)">
-                <div class="passepartout">
-                    <img src="https://picsum.photos/seed/art6/1000/1000" alt="Абстракция" loading="lazy">
-                    <div class="overlay"><span>Рассмотреть</span></div>
-                </div>
+                <img src="https://picsum.photos/seed/art6/1000/1000" alt="Абстракция" loading="lazy">
+                <div class="overlay"><span>Рассмотреть</span></div>
             </div>
         </div>
 
         <section class="about-artist scroll-animate">
             <div class="about-content">
                 <h2>О художнике</h2>
-                <p>Добро пожаловать в мой мир искусства. Меня зовут Александр, и я посвятил свою жизнь поиску ускользающей красоты в повседневных мелочах. Мой творческий путь начался с глубокого увлечения классической школой живописи.</p>
-                <p>Я экспериментирую с тонкими лессировками и текстурами, стремясь передать атмосферу момента и сложную игру света. Каждое полотно — это искренний диалог со зрителем, приглашение к размышлению.</p>
+                <p>Добро пожаловать в мою мастерскую. Меня зовут Александр, и я посвятил свою жизнь поиску ускользающей красоты в повседневных мелочах. Мой творческий путь начался с глубокого увлечения классической школой живописи.</p>
+                <p>Я экспериментирую с тонкими лессировками и текстурами, стремясь передать атмосферу момента и сложную игру света. Каждое полотно — это искренний диалог со зрителем, приглашение к размышлению в тишине.</p>
             </div>
             <div class="about-image">
-                <img src="https://picsum.photos/seed/artist/400/400" alt="Фото художника" loading="lazy">
+                <img src="https://picsum.photos/seed/artist/400/500" alt="Фото художника" loading="lazy">
             </div>
         </section>
         
@@ -92,7 +80,7 @@
                 <div class="faq-item">
                     <button class="faq-question">Как оформляются работы? <span class="faq-icon">+</span></button>
                     <div class="faq-answer">
-                        <p>Каждая картина оформляется в элегантное паспарту и качественный багет, подобранный индивидуально для подчеркивания колорита работы.</p>
+                        <p>Я предпочитаю минимализм. Картины передаются покупателю в естественном виде, холст на подрамнике, без лишних тяжелых багетов, чтобы ничто не отвлекало от самой живописи.</p>
                     </div>
                 </div>
             </div>
