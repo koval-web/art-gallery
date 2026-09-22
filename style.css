@@ -1,13 +1,10 @@
 :root {
-    /* Крафтовая, благородная темная палитра */
-    --bg-color: #1a1a1a; /* Глубокий графитовый фон */
-    --text-color: #eae5d9; /* Мягкий пергамент/кремовый для текста */
-    --text-muted: #b8b3a5; /* Приглушенный текст */
-    --accent-color: #dcb36c; /* Мягкое состаренное золото */
-    --card-bg: #222222; /* Фон карточек, чуть светлее основного */
-    --border-color: rgba(220, 179, 108, 0.25); /* Тонкие золотистые рамки */
-    --shadow-color: rgba(0, 0, 0, 0.5); /* Мягкие, но глубокие тени */
-    --glow-color: rgba(220, 179, 108, 0.2); /* Золотистое свечение */
+    /* Благородный минимализм: глубокие темные фоны и теплый песок */
+    --bg-color: #121212;
+    --text-color: #d8d3c5;
+    --text-muted: #9c9789;
+    --accent-color: #cda87c;
+    --border-color: rgba(205, 168, 124, 0.15);
 }
 
 * {
@@ -20,165 +17,157 @@ body {
     font-family: 'Outfit', sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
-    line-height: 1.7;
+    line-height: 1.8;
     overflow-x: hidden;
+    font-weight: 300;
 }
 
 /* Изящная типографика */
 h1, h2, h3, .faq-question {
     font-family: 'Cormorant Garamond', serif;
-    font-weight: 500;
+    font-weight: 400;
+    letter-spacing: 0.5px;
 }
 
-/* Header с правильным z-index */
+/* Header с правильным z-index и обилием воздуха */
 .gallery-header {
     text-align: center;
-    padding: 6rem 2rem 4rem;
+    padding: 8rem 2rem 5rem;
     position: relative;
-    z-index: 100; /* Защита от перекрытия контентом */
-}
-
-.gallery-header::after {
-    content: '';
-    display: block;
-    width: 80px;
-    height: 1px;
-    background-color: var(--accent-color);
-    margin: 2.5rem auto 0;
-    opacity: 0.7;
+    z-index: 100;
 }
 
 .gallery-header h1 {
-    font-size: 4rem;
-    margin-bottom: 0.8rem;
-    color: var(--accent-color);
-    letter-spacing: 3px;
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    letter-spacing: 4px;
     text-transform: uppercase;
+    font-weight: 300;
 }
 
 .gallery-header p {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     font-weight: 300;
     color: var(--text-muted);
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
     font-style: italic;
     font-family: 'Cormorant Garamond', serif;
 }
 
 .gallery-container {
-    max-width: 1280px;
+    max-width: 1300px;
     margin: 0 auto;
     padding: 0 2rem 5rem;
     position: relative;
     z-index: 10;
 }
 
-/* Фильтры */
+/* Фильтры: Минималистичные, аккуратные */
 .filters {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 1.5rem;
+    gap: 2.5rem;
     margin-bottom: 5rem;
 }
 
 .filter-btn {
     background: transparent;
-    border: 1px solid var(--border-color);
+    border: none;
     color: var(--text-muted);
-    padding: 0.6rem 2.2rem;
-    border-radius: 50px;
-    font-size: 0.95rem;
+    padding: 0.5rem 0;
+    font-size: 0.9rem;
     font-weight: 300;
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
     text-transform: uppercase;
     cursor: pointer;
-    transition: all 0.4s ease;
+    transition: color 0.4s ease;
     font-family: 'Outfit', sans-serif;
+    position: relative;
+}
+
+.filter-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 1px;
+    background-color: var(--accent-color);
+    transition: all 0.4s ease;
+    transform: translateX(-50%);
 }
 
 .filter-btn:hover,
 .filter-btn.active {
-    border-color: var(--accent-color);
     color: var(--accent-color);
-    background: rgba(220, 179, 108, 0.05);
-    box-shadow: 0 0 20px var(--glow-color);
 }
 
-/* Галерея: Идеальная пропорциональная сетка без деформаций */
+.filter-btn.active::after,
+.filter-btn:hover::after {
+    width: 100%;
+}
+
+/* Галерея: Строгая сетка, чистые изображения */
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 3.5rem;
-    align-items: start;
+    gap: 2rem; /* Воздух между картинами */
+    align-items: stretch;
 }
 
 .gallery-item {
     position: relative;
     cursor: pointer;
-    transition: transform 0.5s ease, opacity 0.5s ease;
-    width: 100%;
-}
-
-/* Эффект элегантного паспарту с пропорцией (Aspect Ratio) */
-.passepartout {
-    background: #e8e4db; /* Цвет картона */
-    padding: 4%;
-    box-shadow: 0 15px 40px var(--shadow-color), inset 0 0 15px rgba(0,0,0,0.08);
-    border: 1px solid #0a0a0a;
-    border-radius: 2px;
-    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
-    position: relative;
-    /* Устанавливаем строгую пропорцию для карточки, чтобы картинки внутри не растягивались */
+    overflow: hidden;
     aspect-ratio: 4 / 5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden; /* Важно, чтобы картинка не выходила за границы рамки */
+    transition: opacity 0.5s ease;
 }
 
-.passepartout:hover {
-    transform: scale(1.03);
-}
-
-/* Картинка без деформации */
-.passepartout img {
+/* Изображения без рамок */
+.gallery-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Строго обрезает, не растягивая */
+    object-fit: cover;
     object-position: center;
     display: block;
-    box-shadow: inset 0 0 20px rgba(0,0,0,0.6);
-    border: 1px solid rgba(0,0,0,0.15);
+    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
+.gallery-item:hover img {
+    transform: scale(1.03); /* Деликатное увеличение */
+}
+
+/* Легкое затемнение и текст при наведении */
 .overlay {
     position: absolute;
-    inset: 4%; /* Точно по размеру фото внутри паспарту */
-    background: rgba(26, 26, 26, 0.7);
+    inset: 0;
+    background: rgba(18, 18, 18, 0.4); /* Очень деликатное затемнение */
     display: flex;
     justify-content: center;
     align-items: center;
     opacity: 0;
-    transition: opacity 0.5s ease;
+    transition: opacity 0.6s ease;
 }
 
-.passepartout:hover .overlay {
+.gallery-item:hover .overlay {
     opacity: 1;
 }
 
 .overlay span {
-    color: var(--accent-color);
+    color: var(--text-color);
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-style: italic;
-    border-bottom: 1px solid var(--accent-color);
-    padding-bottom: 3px;
+    letter-spacing: 1px;
+    opacity: 0;
     transform: translateY(15px);
-    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.passepartout:hover .overlay span {
+.gallery-item:hover .overlay span {
+    opacity: 1;
     transform: translateY(0);
 }
 
@@ -187,22 +176,18 @@ h1, h2, h3, .faq-question {
     display: none;
 }
 .gallery-item.show {
-    animation: fadeInGallery 0.6s ease forwards;
+    animation: fadeInGallery 0.8s ease forwards;
 }
 
 @keyframes fadeInGallery {
-    from { opacity: 0; transform: translateY(20px); }
+    from { opacity: 0; transform: translateY(15px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Общие стили для секций (О художнике, FAQ, Контакты) */
+/* Общие стили для секций: много воздуха, никаких подложек */
 .about-artist, .faq-section, .contact-section {
-    margin-top: 7rem;
-    padding: 5rem;
-    background: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 8px; /* Чуть смягченные углы для крафтового вида */
-    box-shadow: 0 25px 50px var(--shadow-color);
+    margin-top: 10rem;
+    padding: 0;
 }
 
 /* О художнике */
@@ -210,7 +195,7 @@ h1, h2, h3, .faq-question {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 5rem;
+    gap: 6rem;
 }
 
 .about-content {
@@ -219,37 +204,36 @@ h1, h2, h3, .faq-question {
 }
 
 .about-content h2, .faq-section h2, .contact-section h2 {
-    font-size: 2.8rem;
-    margin-bottom: 2rem;
-    color: var(--accent-color);
-    letter-spacing: 1.5px;
+    font-size: 3rem;
+    margin-bottom: 2.5rem;
+    color: var(--text-color);
+    font-weight: 300;
 }
 
 .about-content p, .faq-answer p, .contact-section p {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     color: var(--text-muted);
     margin-bottom: 1.5rem;
-    line-height: 1.8;
 }
 
 .about-image {
-    flex: 0 0 auto;
+    flex: 0 0 40%;
+    min-width: 300px;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
 }
 
 .about-image img {
-    width: 320px;
-    height: 400px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    border: 1px solid var(--border-color);
-    padding: 12px;
-    background: var(--bg-color);
-    filter: sepia(0.2) contrast(1.1);
-    transition: filter 0.6s ease;
-    border-radius: 4px;
+    filter: grayscale(0.5); /* Легкий налет старины/строгости */
+    transition: filter 0.8s ease, transform 1s ease;
 }
 
-.about-image img:hover {
-    filter: sepia(0) contrast(1);
+.about-image:hover img {
+    filter: grayscale(0);
+    transform: scale(1.02);
 }
 
 /* FAQ */
@@ -261,14 +245,16 @@ h1, h2, h3, .faq-question {
 .faq-container {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    max-width: 850px;
+    max-width: 800px;
     margin: 0 auto;
 }
 
 .faq-item {
-    border-bottom: 1px solid rgba(220, 179, 108, 0.15);
-    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.faq-item:first-child {
+    border-top: 1px solid var(--border-color);
 }
 
 .faq-question {
@@ -277,13 +263,13 @@ h1, h2, h3, .faq-question {
     background: transparent;
     border: none;
     color: var(--text-color);
-    font-size: 1.4rem;
+    font-size: 1.3rem;
+    padding: 2rem 0;
     cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
     transition: color 0.4s ease;
-    letter-spacing: 0.5px;
 }
 
 .faq-question:hover {
@@ -291,76 +277,88 @@ h1, h2, h3, .faq-question {
 }
 
 .faq-icon {
-    font-size: 1.6rem;
-    font-weight: 400;
-    color: var(--accent-color);
-    transition: transform 0.4s ease;
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--text-muted);
+    transition: transform 0.4s ease, color 0.4s ease;
 }
 
-.faq-item.active .faq-question {
+.faq-item.active .faq-question, .faq-item.active .faq-icon {
     color: var(--accent-color);
 }
 
 .faq-answer {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.5s ease, margin-top 0.5s ease;
+    transition: max-height 0.6s ease;
 }
 
 .faq-item.active .faq-answer {
-    max-height: 400px;
-    margin-top: 1.5rem;
+    max-height: 300px;
+}
+
+.faq-answer p {
+    padding-bottom: 2rem;
 }
 
 /* Контакты */
 .contact-section {
     text-align: center;
+    margin-bottom: 5rem;
 }
 
 .contact-section p {
-    max-width: 650px;
+    max-width: 600px;
     margin: 0 auto 4rem;
 }
 
 .contact-links {
     display: flex;
     justify-content: center;
-    gap: 2.5rem;
+    gap: 3rem;
     flex-wrap: wrap;
 }
 
 .contact-btn {
     text-decoration: none;
-    padding: 1rem 3rem;
-    border: 1px solid var(--border-color);
-    color: var(--text-color);
-    font-size: 1.05rem;
-    font-weight: 300;
-    letter-spacing: 2.5px;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    transition: all 0.5s ease;
-    background: transparent;
-    border-radius: 50px;
+    transition: color 0.4s ease;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.contact-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--border-color);
+    transition: background-color 0.4s ease;
 }
 
 .contact-btn:hover {
-    border-color: var(--accent-color);
     color: var(--accent-color);
-    background: rgba(220, 179, 108, 0.05);
-    box-shadow: 0 0 25px var(--glow-color);
-    transform: translateY(-3px);
+}
+
+.contact-btn:hover::after {
+    background-color: var(--accent-color);
 }
 
 /* Модальное окно */
 .modal {
     display: none;
     position: fixed;
-    z-index: 1000; /* Строгий контроль слоя, всегда сверху */
+    z-index: 1000;
     inset: 0;
-    background-color: rgba(10, 10, 10, 0.95);
+    background-color: rgba(10, 10, 10, 0.98);
     justify-content: center;
     align-items: center;
-    padding: 2rem;
+    padding: 3rem;
     opacity: 0;
     transition: opacity 0.5s ease;
 }
@@ -371,13 +369,11 @@ h1, h2, h3, .faq-question {
 }
 
 .modal-content {
-    max-width: 90%;
-    max-height: 90vh;
-    border: 12px solid #e8e4db;
-    box-shadow: 0 0 60px rgba(0, 0, 0, 0.9);
-    transform: scale(0.95);
-    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-    object-fit: contain; /* Чтобы большое изображение не искажалось */
+    max-width: 100%;
+    max-height: 100vh;
+    object-fit: contain;
+    transform: scale(0.98);
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .modal.active .modal-content {
@@ -386,14 +382,15 @@ h1, h2, h3, .faq-question {
 
 .close-btn {
     position: absolute;
-    top: 30px;
+    top: 40px;
     right: 50px;
     color: var(--text-muted);
-    font-size: 45px;
-    font-weight: 300;
+    font-size: 35px;
+    font-weight: 200;
     cursor: pointer;
     transition: color 0.4s ease;
-    z-index: 1001; /* Поверх всего модального окна */
+    z-index: 1001;
+    font-family: sans-serif;
 }
 
 .close-btn:hover {
@@ -403,8 +400,8 @@ h1, h2, h3, .faq-question {
 /* Анимации при прокрутке */
 .scroll-animate {
     opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 1.2s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transform: translateY(30px);
+    transition: opacity 1.2s ease, transform 1.2s ease;
 }
 
 .scroll-animate.visible {
@@ -412,18 +409,18 @@ h1, h2, h3, .faq-question {
     transform: translateY(0);
 }
 
-/* Кнопка наверх */
+/* Кнопка наверх: строгая и незаметная */
 #scrollTopBtn {
     position: fixed;
     bottom: 40px;
     right: 40px;
-    width: 55px;
-    height: 55px;
-    background: var(--card-bg);
-    color: var(--accent-color);
+    width: 45px;
+    height: 45px;
+    background: transparent;
+    color: var(--text-muted);
     border: 1px solid var(--border-color);
     border-radius: 50%;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -431,7 +428,7 @@ h1, h2, h3, .faq-question {
     opacity: 0;
     visibility: hidden;
     transition: all 0.5s ease;
-    z-index: 900; /* Ниже модального окна, но выше контента */
+    z-index: 900;
 }
 
 #scrollTopBtn.show {
@@ -440,58 +437,54 @@ h1, h2, h3, .faq-question {
 }
 
 #scrollTopBtn:hover {
-    box-shadow: 0 0 25px var(--glow-color);
+    color: var(--accent-color);
+    border-color: var(--accent-color);
     transform: translateY(-5px);
-    background: rgba(220, 179, 108, 0.1);
 }
 
 /* Адаптив */
 @media (max-width: 1024px) {
-    .about-artist, .faq-section, .contact-section {
-        padding: 4rem 3rem;
+    .about-artist {
+        gap: 4rem;
     }
 }
 
 @media (max-width: 768px) {
     .gallery-header {
-        padding: 4rem 1.5rem 3rem;
+        padding: 5rem 1.5rem 3rem;
     }
 
     .gallery-header h1 {
-        font-size: 2.8rem;
+        font-size: 2.5rem;
     }
     
     .gallery-grid {
         grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-        gap: 2rem;
+        gap: 1.5rem;
     }
 
     .about-artist {
-        padding: 3rem 1.5rem;
         flex-direction: column;
-        gap: 2.5rem;
-        text-align: center;
+        gap: 3rem;
+        margin-top: 6rem;
     }
     
-    .about-image img {
+    .about-image {
         width: 100%;
-        max-width: 320px;
-        height: auto;
+        max-width: 400px;
+        margin: 0 auto;
     }
 
     .faq-section, .contact-section {
-        padding: 3rem 1.5rem;
+        margin-top: 6rem;
     }
     
     .contact-links {
-        flex-direction: column;
         gap: 1.5rem;
     }
     
     #scrollTopBtn {
         bottom: 25px;
         right: 25px;
-        width: 45px;
-        height: 45px;
     }
 }
