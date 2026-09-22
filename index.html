@@ -5,18 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Галерея Искусств</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Outfit:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="gallery-header">
-        <h1>Галерея Вдохновения</h1>
-        <p>Коллекция прекрасных картин</p>
+    <header class="gallery-header scroll-animate">
+        <h1>Галерея Искусств</h1>
+        <p>Коллекция прекрасных картин в благородном обрамлении</p>
     </header>
 
     <main class="gallery-container">
         <!-- Фильтры -->
         <div class="filters scroll-animate">
-            <button class="filter-btn active" data-filter="all">Все</button>
+            <button class="filter-btn active" data-filter="all">Все работы</button>
             <button class="filter-btn" data-filter="landscape">Пейзажи</button>
             <button class="filter-btn" data-filter="portrait">Портреты</button>
             <button class="filter-btn" data-filter="abstract">Абстракция</button>
@@ -24,60 +26,73 @@
 
         <div class="gallery-grid scroll-animate">
             <div class="gallery-item" data-category="landscape" onclick="openModal(this)">
-                <img src="https://picsum.photos/seed/art1/800/1000" alt="Картина 1" loading="lazy">
-                <div class="overlay"><span>Увеличить</span></div>
+                <div class="passepartout">
+                    <img src="https://picsum.photos/seed/art1/800/1000" alt="Картина 1" loading="lazy">
+                    <div class="overlay"><span>Рассмотреть</span></div>
+                </div>
             </div>
             <div class="gallery-item" data-category="portrait" onclick="openModal(this)">
-                <img src="https://picsum.photos/seed/art2/800/1000" alt="Картина 2" loading="lazy">
-                <div class="overlay"><span>Увеличить</span></div>
+                <div class="passepartout">
+                    <img src="https://picsum.photos/seed/art2/800/1000" alt="Картина 2" loading="lazy">
+                    <div class="overlay"><span>Рассмотреть</span></div>
+                </div>
             </div>
             <div class="gallery-item" data-category="abstract" onclick="openModal(this)">
-                <img src="https://picsum.photos/seed/art3/1000/800" alt="Картина 3" loading="lazy">
-                <div class="overlay"><span>Увеличить</span></div>
+                <div class="passepartout">
+                    <img src="https://picsum.photos/seed/art3/1000/800" alt="Картина 3" loading="lazy">
+                    <div class="overlay"><span>Рассмотреть</span></div>
+                </div>
             </div>
             <div class="gallery-item" data-category="landscape" onclick="openModal(this)">
-                <img src="https://picsum.photos/seed/art4/800/1000" alt="Картина 4" loading="lazy">
-                <div class="overlay"><span>Увеличить</span></div>
+                <div class="passepartout">
+                    <img src="https://picsum.photos/seed/art4/1000/800" alt="Картина 4" loading="lazy">
+                    <div class="overlay"><span>Рассмотреть</span></div>
+                </div>
             </div>
             <div class="gallery-item" data-category="portrait" onclick="openModal(this)">
-                <img src="https://picsum.photos/seed/art5/1000/800" alt="Картина 5" loading="lazy">
-                <div class="overlay"><span>Увеличить</span></div>
+                <div class="passepartout">
+                    <img src="https://picsum.photos/seed/art5/800/1000" alt="Картина 5" loading="lazy">
+                    <div class="overlay"><span>Рассмотреть</span></div>
+                </div>
             </div>
             <div class="gallery-item" data-category="abstract" onclick="openModal(this)">
-                <img src="https://picsum.photos/seed/art6/800/1000" alt="Картина 6" loading="lazy">
-                <div class="overlay"><span>Увеличить</span></div>
+                <div class="passepartout">
+                    <img src="https://picsum.photos/seed/art6/1000/800" alt="Картина 6" loading="lazy">
+                    <div class="overlay"><span>Рассмотреть</span></div>
+                </div>
             </div>
         </div>
 
         <section class="about-artist scroll-animate">
             <div class="about-content">
                 <h2>О художнике</h2>
-                <p>Добро пожаловать в мой мир искусства! Меня зовут Александр, и я посвятил свою жизнь поиску красоты в повседневных мелочах. Мой творческий путь начался еще в детстве, когда я впервые взял в руки кисть. С тех пор каждая картина — это отражение моих эмоций, путешествий и глубоких размышлений.</p>
-                <p>Я экспериментирую с различными техниками и материалами, стремясь передать атмосферу момента и игру света. Надеюсь, что мои работы найдут отклик в вашем сердце.</p>
+                <p>Добро пожаловать в мой мир искусства. Меня зовут Александр, и я посвятил свою жизнь поиску ускользающей красоты в повседневных мелочах. Мой творческий путь начался с глубокого увлечения классической школой живописи.</p>
+                <p>Я экспериментирую с тонкими лессировками и текстурами, стремясь передать атмосферу момента и сложную игру света. Каждое полотно — это искренний диалог со зрителем, приглашение к размышлению.</p>
             </div>
             <div class="about-image">
                 <img src="https://picsum.photos/seed/artist/400/400" alt="Фото художника" loading="lazy">
             </div>
         </section>
+        
         <section class="faq-section scroll-animate">
             <h2>Частые вопросы</h2>
             <div class="faq-container">
                 <div class="faq-item">
                     <button class="faq-question">Как приобрести картину? <span class="faq-icon">+</span></button>
                     <div class="faq-answer">
-                        <p>Вы можете написать мне в любой из социальных сетей или на почту, указав название понравившейся работы. Мы обсудим детали оплаты и доставки.</p>
+                        <p>Вы можете написать мне, указав название понравившейся работы. Мы обсудим детали бережной упаковки, оплаты и доставки в ваш регион.</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question">Возможно ли написание картины на заказ? <span class="faq-icon">+</span></button>
                     <div class="faq-answer">
-                        <p>Да, я с удовольствием принимаю заказы. Расскажите мне о своей идее, желаемых размерах и цветовой гамме, и мы создадим уникальное произведение искусства специально для вас.</p>
+                        <p>Да, я открыт к заказам. Поделитесь вашей идеей, и мы создадим уникальное произведение, которое идеально дополнит ваш интерьер.</p>
                     </div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question">Как осуществляется доставка? <span class="faq-icon">+</span></button>
+                    <button class="faq-question">Как оформляются работы? <span class="faq-icon">+</span></button>
                     <div class="faq-answer">
-                        <p>Картины надежно упаковываются и отправляются курьерскими службами по всему миру. Сроки и стоимость доставки зависят от вашего региона и размера полотна.</p>
+                        <p>Каждая картина оформляется в элегантное паспарту и качественный багет, подобранный индивидуально для подчеркивания колорита работы.</p>
                     </div>
                 </div>
             </div>
@@ -85,11 +100,11 @@
         
         <section class="contact-section scroll-animate">
             <h2>Свяжитесь со мной</h2>
-            <p>Понравились работы? Открыт к сотрудничеству и заказам. Напишите мне в социальных сетях или на электронную почту!</p>
+            <p>Понравились работы? Открыт к сотрудничеству. Напишите мне, и я с радостью отвечу на все вопросы.</p>
             <div class="contact-links">
-                <a href="#" class="contact-btn telegram">Telegram</a>
-                <a href="#" class="contact-btn instagram">Instagram</a>
-                <a href="#" class="contact-btn email">Email</a>
+                <a href="#" class="contact-btn">Telegram</a>
+                <a href="#" class="contact-btn">Instagram</a>
+                <a href="#" class="contact-btn">Email</a>
             </div>
         </section>
     </main>
