@@ -115,3 +115,13 @@ const observer = new IntersectionObserver((entries, observer) => {
 
 const scrollElements = document.querySelectorAll('.scroll-animate');
 scrollElements.forEach(el => observer.observe(el));
+
+// Параллакс эффект для главного экрана (Mona Lisa)
+const heroParallax = document.querySelector('.hero-parallax');
+if (heroParallax) {
+    window.addEventListener('scroll', () => {
+        const scrolled = window.scrollY;
+        // Плавно смещаем контейнер с фоном при скролле вниз
+        heroParallax.style.transform = `translateY(${scrolled * 0.4}px)`;
+    });
+}
