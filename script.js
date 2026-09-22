@@ -1,6 +1,7 @@
 function openModal(element) {
     const modal = document.getElementById("imageModal");
     const modalImg = document.getElementById("expandedImg");
+    // Find the image inside the passepartout container
     const img = element.querySelector("img");
     
     modalImg.src = img.src;
@@ -15,7 +16,7 @@ function closeModal() {
     // Add small delay for closing animation
     setTimeout(() => {
         document.body.style.overflow = "auto";
-    }, 300);
+    }, 400); // Matches the new CSS transition duration
 }
 
 // Close modal when pressing Escape key
@@ -71,7 +72,7 @@ faqQuestions.forEach(question => {
 const scrollTopBtn = document.getElementById("scrollTopBtn");
 
 window.addEventListener("scroll", () => {
-    if (window.scrollY > 300) {
+    if (window.scrollY > 400) {
         scrollTopBtn.classList.add("show");
     } else {
         scrollTopBtn.classList.remove("show");
@@ -89,17 +90,19 @@ scrollTopBtn.addEventListener("click", () => {
 const observerOptions = {
     root: null,
     rootMargin: '0px',
-    threshold: 0.1
+    threshold: 0.15 // Slightly higher threshold for elegant late appearance
 };
 
 const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
-            // observer.unobserve(entry.target); // Uncomment if you only want it to animate once
+            // Optional: uncomment to animate only once
+            // observer.unobserve(entry.target); 
         }
     });
 }, observerOptions);
 
 const scrollElements = document.querySelectorAll('.scroll-animate');
 scrollElements.forEach(el => observer.observe(el));
+
