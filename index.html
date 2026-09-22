@@ -3,37 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Арт-галерея | Портфолио художника</title>
+    <title>Галерея Искусств</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>Галерея Искусств</h1>
-        <nav>
-            <a href="#gallery">Работы</a>
-            <a href="#about">О художнике</a>
-            <a href="#contact">Контакты</a>
-        </nav>
+    <header class="gallery-header">
+        <h1>Галерея Вдохновения</h1>
+        <p>Коллекция прекрасных картин</p>
     </header>
 
-    <main>
-        <section id="gallery" class="gallery-grid">
-            <!-- Места для будущих картин -->
-            <div class="art-item"><p>Картина 1</p></div>
-            <div class="art-item"><p>Картина 2</p></div>
-            <div class="art-item"><p>Картина 3</p></div>
-            <div class="art-item"><p>Картина 4</p></div>
-        </section>
-
-        <section id="about" class="about-section">
-            <h2>О художнике</h2>
-            <p>Здесь будет биография и творческий путь.</p>
-        </section>
+    <main class="gallery-container">
+        <div class="gallery-grid">
+            <div class="gallery-item" onclick="openModal(this)">
+                <img src="https://picsum.photos/seed/art1/800/1000" alt="Картина 1" loading="lazy">
+                <div class="overlay"><span>Увеличить</span></div>
+            </div>
+            <div class="gallery-item" onclick="openModal(this)">
+                <img src="https://picsum.photos/seed/art2/800/1000" alt="Картина 2" loading="lazy">
+                <div class="overlay"><span>Увеличить</span></div>
+            </div>
+            <div class="gallery-item" onclick="openModal(this)">
+                <img src="https://picsum.photos/seed/art3/1000/800" alt="Картина 3" loading="lazy">
+                <div class="overlay"><span>Увеличить</span></div>
+            </div>
+            <div class="gallery-item" onclick="openModal(this)">
+                <img src="https://picsum.photos/seed/art4/800/1000" alt="Картина 4" loading="lazy">
+                <div class="overlay"><span>Увеличить</span></div>
+            </div>
+            <div class="gallery-item" onclick="openModal(this)">
+                <img src="https://picsum.photos/seed/art5/1000/800" alt="Картина 5" loading="lazy">
+                <div class="overlay"><span>Увеличить</span></div>
+            </div>
+            <div class="gallery-item" onclick="openModal(this)">
+                <img src="https://picsum.photos/seed/art6/800/1000" alt="Картина 6" loading="lazy">
+                <div class="overlay"><span>Увеличить</span></div>
+            </div>
+        </div>
     </main>
 
-    <footer id="contact">
-        <p>Свяжитесь со мной: email@example.com</p>
-    </footer>
+    <!-- Модальное окно -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="expandedImg">
+    </div>
 
     <script src="script.js"></script>
 </body>
