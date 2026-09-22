@@ -3,113 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Авторская Галерея Искусств</title>
+    <title>Галерея Искусств</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Outfit:wght@200;300;400&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="hero-section">
-        <div class="hero-parallax">
-            <div class="hero-bg"></div>
-        </div>
-        <div class="hero-content scroll-animate">
-            <h1>Галерея Искусств</h1>
-            <p>Чистое вдохновение в каждой линии</p>
-        </div>
-    </header>
 
-    <main class="gallery-container">
-        <!-- Фильтры -->
-        <div class="filters scroll-animate">
+    <header>
+        <h1>Галерея Искусств</h1>
+        <p>Чистое вдохновение в каждой линии</p>
+        
+        <div class="filters">
             <button class="filter-btn active" data-filter="all">Все работы</button>
             <button class="filter-btn" data-filter="landscape">Пейзажи</button>
             <button class="filter-btn" data-filter="portrait">Портреты</button>
             <button class="filter-btn" data-filter="abstract">Абстракция</button>
         </div>
+    </header>
 
-        <div class="gallery-grid scroll-animate">
-            <div class="gallery-item" data-category="landscape" onclick="openModal(this)">
-                <img src="https://picsum.photos/seed/art1/800/1000" alt="Пейзаж" loading="lazy">
-                <div class="overlay"><span>Рассмотреть</span></div>
+    <main>
+        <div class="gallery-grid">
+            <div class="gallery-item" data-category="landscape">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Пейзаж">
             </div>
-            <div class="gallery-item" data-category="portrait" onclick="openModal(this)">
-                <img src="https://picsum.photos/seed/art2/800/1000" alt="Портрет" loading="lazy">
-                <div class="overlay"><span>Рассмотреть</span></div>
+            <div class="gallery-item" data-category="landscape">
+                <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05" alt="Природа">
             </div>
-            <div class="gallery-item" data-category="abstract" onclick="openModal(this)">
-                <img src="https://picsum.photos/seed/art3/1000/1000" alt="Абстракция" loading="lazy">
-                <div class="overlay"><span>Рассмотреть</span></div>
+            <div class="gallery-item" data-category="abstract">
+                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23" alt="Абстракция">
             </div>
-            <div class="gallery-item" data-category="landscape" onclick="openModal(this)">
-                <img src="https://picsum.photos/seed/art4/1000/1000" alt="Пейзаж" loading="lazy">
-                <div class="overlay"><span>Рассмотреть</span></div>
+            <div class="gallery-item" data-category="landscape">
+                <img src="https://images.unsplash.com/photo-1426604966848-d7adacbd02bff" alt="Городской пейзаж">
             </div>
-            <div class="gallery-item" data-category="portrait" onclick="openModal(this)">
-                <img src="https://picsum.photos/seed/art5/800/1000" alt="Портрет" loading="lazy">
-                <div class="overlay"><span>Рассмотреть</span></div>
+            <div class="gallery-item" data-category="portrait">
+                <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470" alt="Дорога">
             </div>
-            <div class="gallery-item" data-category="abstract" onclick="openModal(this)">
-                <img src="https://picsum.photos/seed/art6/1000/1000" alt="Абстракция" loading="lazy">
-                <div class="overlay"><span>Рассмотреть</span></div>
+            <div class="gallery-item" data-category="portrait">
+                <img src="https://images.unsplash.com/photo-1561731216-c3a4d99437d5" alt="Портрет / Медведь">
             </div>
         </div>
-
-        <section class="about-artist scroll-animate">
-            <div class="about-content">
-                <h2>О художнике</h2>
-                <p>Добро пожаловать в мою мастерскую. Меня зовут Александр, и я посвятил свою жизнь поиску ускользающей красоты в повседневных мелочах. Мой творческий путь начался с глубокого увлечения классической школой живописи.</p>
-                <p>Я экспериментирую с тонкими лессировками и текстурами, стремясь передать атмосферу момента и сложную игру света. Каждое полотно — это искренний диалог со зрителем, приглашение к размышлению в тишине.</p>
-            </div>
-            <div class="about-image">
-                <img src="https://picsum.photos/seed/artist/400/500" alt="Фото художника" loading="lazy">
-            </div>
-        </section>
-        
-        <section class="faq-section scroll-animate">
-            <h2>Частые вопросы</h2>
-            <div class="faq-container">
-                <div class="faq-item">
-                    <button class="faq-question">Как приобрести картину? <span class="faq-icon">+</span></button>
-                    <div class="faq-answer">
-                        <p>Вы можете написать мне, указав название понравившейся работы. Мы обсудим детали бережной упаковки, оплаты и доставки в ваш регион.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">Возможно ли написание картины на заказ? <span class="faq-icon">+</span></button>
-                    <div class="faq-answer">
-                        <p>Да, я открыт к заказам. Поделитесь вашей идеей, и мы создадим уникальное произведение, которое идеально дополнит ваш интерьер.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">Как оформляются работы? <span class="faq-icon">+</span></button>
-                    <div class="faq-answer">
-                        <p>Я предпочитаю минимализм. Картины передаются покупателю в естественном виде, холст на подрамнике, без лишних тяжелых багетов, чтобы ничто не отвлекало от самой живописи.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section class="contact-section scroll-animate">
-            <h2>Свяжитесь со мной</h2>
-            <p>Понравились работы? Открыт к сотрудничеству. Напишите мне, и я с радостью отвечу на все вопросы.</p>
-            <div class="contact-links">
-                <a href="#" class="contact-btn">Telegram</a>
-                <a href="#" class="contact-btn">Instagram</a>
-                <a href="#" class="contact-btn">Email</a>
-            </div>
-        </section>
     </main>
 
-    <!-- Кнопка наверх -->
-    <button id="scrollTopBtn" title="Наверх">&#8593;</button>
-
-    <!-- Модальное окно -->
-    <div id="imageModal" class="modal" onclick="closeModal()">
-        <span class="close-btn" onclick="closeModal()">&times;</span>
-        <img class="modal-content" id="expandedImg">
-    </div>
+    <footer style="text-align: center; margin-top: 60px; color: #777;">
+        <p>О художнике</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
