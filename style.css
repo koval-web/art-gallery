@@ -8,7 +8,10 @@ html, body {
     font-family: 'Cormorant Garamond', serif;
 }
 
-/* Возвращаем темный премиальный фон без багов с отображением */
 body {
     background-image: none !important;
+}
+
+h1, h2, h3, p, span, a {
+    color: #e0e0e0 !important;
 }
