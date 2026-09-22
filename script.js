@@ -2,7 +2,7 @@ function openModal(element) {
     const modal = document.getElementById("imageModal");
     const modalImg = document.getElementById("expandedImg");
     
-    // Находим картинку внутри кликнутой карточки паспарту
+    // В новой верстке img лежит прямо внутри gallery-item
     const img = element.querySelector("img");
     
     if (img) {
@@ -16,7 +16,7 @@ function closeModal() {
     const modal = document.getElementById("imageModal");
     modal.classList.remove("active");
     
-    // Задержка совпадает с CSS transition модального окна (0.5s = 500ms)
+    // Задержка совпадает с CSS transition модального окна
     setTimeout(() => {
         document.body.style.overflow = "auto";
     }, 500); 
