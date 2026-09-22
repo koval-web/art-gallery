@@ -1,40 +1,50 @@
 function openModal(element) {
     const modal = document.getElementById("imageModal");
     const modalImg = document.getElementById("expandedImg");
-    // Find the image inside the passepartout container
+    
+    // Находим картинку внутри кликнутой карточки паспарту
     const img = element.querySelector("img");
     
-    modalImg.src = img.src;
-    modal.classList.add("active");
-    document.body.style.overflow = "hidden"; // Prevent scrolling
+    if (img) {
+        modalImg.src = img.src;
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden"; // Блокируем скролл фона
+    }
 }
 
 function closeModal() {
     const modal = document.getElementById("imageModal");
     modal.classList.remove("active");
     
-    // Add small delay for closing animation
+    // Задержка совпадает с CSS transition модального окна (0.5s = 500ms)
     setTimeout(() => {
         document.body.style.overflow = "auto";
-    }, 400); // Matches the new CSS transition duration
+    }, 500); 
 }
 
-// Close modal when pressing Escape key
+// Закрытие модального окна по Escape
 document.addEventListener('keydown', function(event) {
     if (event.key === "Escape") {
         closeModal();
     }
 });
 
-// Filter logic
+// Закрытие модального окна по клику вне картинки
+document.getElementById('imageModal').addEventListener('click', function(event) {
+    if (event.target === this) {
+        closeModal();
+    }
+});
+
+// Логика фильтров
 const filterButtons = document.querySelectorAll('.filter-btn');
 const galleryItems = document.querySelectorAll('.gallery-item');
 
 filterButtons.forEach(button => {
     button.addEventListener('click', () => {
-        // Remove active class from all buttons
+        // Убираем класс active у всех
         filterButtons.forEach(btn => btn.classList.remove('active'));
-        // Add active class to clicked button
+        // Добавляем нажатой
         button.classList.add('active');
         
         const filterValue = button.getAttribute('data-filter');
@@ -51,7 +61,7 @@ filterButtons.forEach(button => {
     });
 });
 
-// FAQ logic
+// Логика FAQ (Аккордеон)
 const faqQuestions = document.querySelectorAll('.faq-question');
 
 faqQuestions.forEach(question => {
@@ -68,7 +78,7 @@ faqQuestions.forEach(question => {
     });
 });
 
-// Scroll to top button
+// Кнопка скролла наверх
 const scrollTopBtn = document.getElementById("scrollTopBtn");
 
 window.addEventListener("scroll", () => {
@@ -86,18 +96,18 @@ scrollTopBtn.addEventListener("click", () => {
     });
 });
 
-// Fade-in animation on scroll (Intersection Observer)
+// Анимация появления элементов при скролле (Intersection Observer)
 const observerOptions = {
     root: null,
     rootMargin: '0px',
-    threshold: 0.15 // Slightly higher threshold for elegant late appearance
+    threshold: 0.15
 };
 
 const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
-            // Optional: uncomment to animate only once
+            // Если нужно, чтобы анимация происходила только 1 раз:
             // observer.unobserve(entry.target); 
         }
     });
@@ -105,4 +115,3 @@ const observer = new IntersectionObserver((entries, observer) => {
 
 const scrollElements = document.querySelectorAll('.scroll-animate');
 scrollElements.forEach(el => observer.observe(el));
-
