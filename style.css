@@ -1,529 +1,102 @@
-:root {
-    /* Благородный минимализм: глубокие темные фоны и теплый песок */
-    --bg-color: #121212;
-    --text-color: #d8d3c5;
-    --text-muted: #9c9789;
-    --accent-color: #cda87c;
-    --border-color: rgba(205, 168, 124, 0.15);
-}
-
-* {
+html, body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #121212 !important;
+    color: #e0e0e0 !important;
+    font-family: 'Cormorant Garamond', serif;
 }
 
 body {
-    font-family: 'Outfit', sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    line-height: 1.8;
-    overflow-x: hidden;
-    font-weight: 300;
+    padding: 40px 20px;
 }
 
-/* Изящная типографика */
-h1, h2, h3, .faq-question {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 400;
-    letter-spacing: 0.5px;
-}
-
-/* Главный экран (Hero) с эффектом параллакса и Мона Лизой */
-.hero-section {
-    position: relative;
-    height: 100vh;
-    min-height: 600px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    z-index: 100;
-}
-
-.hero-parallax {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 120%; /* Запас высоты для параллакса при скролле */
-    z-index: -1;
-    will-change: transform;
-}
-
-.hero-bg {
-    width: 100%;
-    height: 100%;
-    /* Ссылка на качественное изображение Мона Лизы */
-    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/1200px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg');
-    background-size: cover;
-    background-position: center 20%;
-    filter: brightness(0.5) contrast(1.1); /* Затемнение, чтобы текст читался */
-    animation: heroZoom 20s ease-out forwards;
-    will-change: transform;
-}
-
-@keyframes heroZoom {
-    0% { transform: scale(1); }
-    100% { transform: scale(1.1); }
-}
-
-.hero-content {
+/* Шапка и навигация */
+header {
     text-align: center;
-    padding: 0 2rem;
-    z-index: 2;
+    margin-bottom: 40px;
 }
 
-.hero-content h1 {
-    font-size: 5rem;
-    margin-bottom: 1rem;
-    color: var(--text-color);
-    letter-spacing: 6px;
-    text-transform: uppercase;
-    font-weight: 300;
-    text-shadow: 0 4px 20px rgba(0,0,0,0.6);
+header h1 {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    color: #f5f5f5;
 }
 
-.hero-content p {
-    font-size: 1.5rem;
-    font-weight: 300;
-    color: var(--accent-color);
-    letter-spacing: 3px;
-    font-style: italic;
-    font-family: 'Cormorant Garamond', serif;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+header p {
+    font-size: 1.1rem;
+    color: #a0a0a0;
+    margin-bottom: 25px;
 }
 
-.gallery-container {
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 0 2rem 5rem;
-    position: relative;
-    z-index: 10;
-}
-
-/* Фильтры: Минималистичные, аккуратные */
 .filters {
     display: flex;
     justify-content: center;
+    gap: 12px;
     flex-wrap: wrap;
-    gap: 2.5rem;
-    margin-bottom: 5rem;
+    margin-bottom: 30px;
 }
 
 .filter-btn {
     background: transparent;
-    border: none;
-    color: var(--text-muted);
-    padding: 0.5rem 0;
-    font-size: 0.9rem;
-    font-weight: 300;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    border: 1px solid #444;
+    color: #ccc;
+    padding: 8.px 18px;
     cursor: pointer;
-    transition: color 0.4s ease;
-    font-family: 'Outfit', sans-serif;
-    position: relative;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
 }
 
-.filter-btn::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 1px;
-    background-color: var(--accent-color);
-    transition: all 0.4s ease;
-    transform: translateX(-50%);
+.filter-btn:hover, .filter-btn.active {
+    border-color: #d4af37;
+    color: #d4af37;
 }
 
-.filter-btn:hover,
-.filter-btn.active {
-    color: var(--accent-color);
-}
-
-.filter-btn.active::after,
-.filter-btn:hover::after {
-    width: 100%;
-}
-
-/* Галерея: Строгая сетка, чистые изображения */
+/* Стабильная и чистая сетка галереи */
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 2rem; /* Воздух между картинами */
-    align-items: stretch;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .gallery-item {
     position: relative;
-    cursor: pointer;
+    width: 100%;
+    height: 380px;
+    border-radius: 8px;
     overflow: hidden;
-    aspect-ratio: 4 / 5;
-    transition: opacity 0.5s ease;
+    background: #1a1a1a;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
 }
 
-/* Изображения без рамок */
 .gallery-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
     display: block;
-    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition: transform 0.5s ease;
 }
 
 .gallery-item:hover img {
-    transform: scale(1.03); /* Деликатное увеличение */
+    transform: scale(1.03);
 }
 
-/* Легкое затемнение и текст при наведении */
-.overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(18, 18, 18, 0.4); /* Очень деликатное затемнение */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition: opacity 0.6s ease;
-}
-
-.gallery-item:hover .overlay {
-    opacity: 1;
-}
-
-.overlay span {
-    color: var(--text-color);
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2rem;
-    font-style: italic;
-    letter-spacing: 1px;
-    opacity: 0;
-    transform: translateY(15px);
-    transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-.gallery-item:hover .overlay span {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Анимация фильтрации */
-.gallery-item.hide {
-    display: none;
-}
-.gallery-item.show {
-    animation: fadeInGallery 0.8s ease forwards;
-}
-
-@keyframes fadeInGallery {
-    from { opacity: 0; transform: translateY(15px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Общие стили для секций: много воздуха, никаких подложек */
-.about-artist, .faq-section, .contact-section {
-    margin-top: 10rem;
-    padding: 0;
-}
-
-/* О художнике */
-.about-artist {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 6rem;
-}
-
-.about-content {
-    flex: 1;
-    min-width: 320px;
-}
-
-.about-content h2, .faq-section h2, .contact-section h2 {
-    font-size: 3rem;
-    margin-bottom: 2.5rem;
-    color: var(--text-color);
-    font-weight: 300;
-}
-
-.about-content p, .faq-answer p, .contact-section p {
-    font-size: 1.1rem;
-    color: var(--text-muted);
-    margin-bottom: 1.5rem;
-}
-
-.about-image {
-    flex: 0 0 40%;
-    min-width: 300px;
-    aspect-ratio: 3 / 4;
-    overflow: hidden;
-}
-
-.about-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: grayscale(0.5); /* Легкий налет старины/строгости */
-    transition: filter 0.8s ease, transform 1s ease;
-}
-
-.about-image:hover img {
-    filter: grayscale(0);
-    transform: scale(1.02);
-}
-
-/* FAQ */
-.faq-section h2 {
-    text-align: center;
-    margin-bottom: 4rem;
-}
-
-.faq-container {
-    display: flex;
-    flex-direction: column;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.faq-item {
-    border-bottom: 1px solid var(--border-color);
-}
-
-.faq-item:first-child {
-    border-top: 1px solid var(--border-color);
-}
-
-.faq-question {
-    width: 100%;
-    text-align: left;
-    background: transparent;
-    border: none;
-    color: var(--text-color);
-    font-size: 1.3rem;
-    padding: 2rem 0;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: color 0.4s ease;
-}
-
-.faq-question:hover {
-    color: var(--accent-color);
-}
-
-.faq-icon {
-    font-size: 1.5rem;
-    font-weight: 300;
-    color: var(--text-muted);
-    transition: transform 0.4s ease, color 0.4s ease;
-}
-
-.faq-item.active .faq-question, .faq-item.active .faq-icon {
-    color: var(--accent-color);
-}
-
-.faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.6s ease;
-}
-
-.faq-item.active .faq-answer {
-    max-height: 300px;
-}
-
-.faq-answer p {
-    padding-bottom: 2rem;
-}
-
-/* Контакты */
-.contact-section {
-    text-align: center;
-    margin-bottom: 5rem;
-}
-
-.contact-section p {
-    max-width: 600px;
-    margin: 0 auto 4rem;
-}
-
-.contact-links {
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
-    flex-wrap: wrap;
-}
-
-.contact-btn {
-    text-decoration: none;
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    transition: color 0.4s ease;
-    position: relative;
-    padding-bottom: 5px;
-}
-
-.contact-btn::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background-color: var(--border-color);
-    transition: background-color 0.4s ease;
-}
-
-.contact-btn:hover {
-    color: var(--accent-color);
-}
-
-.contact-btn:hover::after {
-    background-color: var(--accent-color);
-}
-
-/* Модальное окно */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    inset: 0;
-    background-color: rgba(10, 10, 10, 0.98);
-    justify-content: center;
-    align-items: center;
-    padding: 3rem;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-.modal.active {
-    display: flex;
-    opacity: 1;
-}
-
-.modal-content {
-    max-width: 100%;
-    max-height: 100vh;
-    object-fit: contain;
-    transform: scale(0.98);
-    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-.modal.active .modal-content {
-    transform: scale(1);
-}
-
-.close-btn {
-    position: absolute;
-    top: 40px;
-    right: 50px;
-    color: var(--text-muted);
-    font-size: 35px;
-    font-weight: 200;
-    cursor: pointer;
-    transition: color 0.4s ease;
-    z-index: 1001;
-    font-family: sans-serif;
-}
-
-.close-btn:hover {
-    color: var(--accent-color);
-}
-
-/* Анимации при прокрутке */
-.scroll-animate {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 1.2s ease, transform 1.2s ease;
-}
-
-.scroll-animate.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Кнопка наверх: строгая и незаметная */
-#scrollTopBtn {
-    position: fixed;
-    bottom: 40px;
-    right: 40px;
-    width: 45px;
-    height: 45px;
-    background: transparent;
-    color: var(--text-muted);
-    border: 1px solid var(--border-color);
-    border-radius: 50%;
-    font-size: 1.2rem;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.5s ease;
-    z-index: 900;
-}
-
-#scrollTopBtn.show {
-    opacity: 1;
-    visibility: visible;
-}
-
-#scrollTopBtn:hover {
-    color: var(--accent-color);
-    border-color: var(--accent-color);
-    transform: translateY(-5px);
-}
-
-/* Адаптив */
-@media (max-width: 1024px) {
-    .about-artist {
-        gap: 4rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .gallery-header {
-        padding: 5rem 1.5rem 3rem;
-    }
-
-    .gallery-header h1 {
-        font-size: 2.5rem;
-    }
-    
+/* Адаптивность для мобильных и планшетов */
+@media (max-width: 900px) {
     .gallery-grid {
-        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-        gap: 1.5rem;
+        grid-template-columns: repeat(2, 1fr);
     }
+}
 
-    .about-artist {
-        flex-direction: column;
-        gap: 3rem;
-        margin-top: 6rem;
-    }
-    
-    .about-image {
-        width: 100%;
-        max-width: 400px;
-        margin: 0 auto;
-    }
-
-    .faq-section, .contact-section {
-        margin-top: 6rem;
-    }
-    
-    .contact-links {
-        gap: 1.5rem;
-    }
-    
-    #scrollTopBtn {
-        bottom: 25px;
-        right: 25px;
+@media (max-width: 600px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
     }
 }
