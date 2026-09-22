@@ -1,11 +1,13 @@
 :root {
-    /* Благородная темная палитра */
-    --bg-color: #121212; /* Глубокий графитовый/черный */
-    --text-color: #e8e2d2; /* Мягкий пергамент */
-    --text-muted: #b5ac96;
-    --accent-color: #d4af37; /* Состаренное золото */
-    --card-bg: #1c1c1c; /* Чуть светлее фона для карточек */
-    --border-color: rgba(212, 175, 55, 0.2); /* Тонкие золотые линии */
+    /* Крафтовая, благородная темная палитра */
+    --bg-color: #1a1a1a; /* Глубокий графитовый фон */
+    --text-color: #eae5d9; /* Мягкий пергамент/кремовый для текста */
+    --text-muted: #b8b3a5; /* Приглушенный текст */
+    --accent-color: #dcb36c; /* Мягкое состаренное золото */
+    --card-bg: #222222; /* Фон карточек, чуть светлее основного */
+    --border-color: rgba(220, 179, 108, 0.25); /* Тонкие золотистые рамки */
+    --shadow-color: rgba(0, 0, 0, 0.5); /* Мягкие, но глубокие тени */
+    --glow-color: rgba(220, 179, 108, 0.2); /* Золотистое свечение */
 }
 
 * {
@@ -15,52 +17,60 @@
 }
 
 body {
-    font-family: 'Outfit', sans-serif; /* Чистый гротеск для текста */
+    font-family: 'Outfit', sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.7;
+    overflow-x: hidden;
 }
 
+/* Изящная типографика */
 h1, h2, h3, .faq-question {
-    font-family: 'Cormorant Garamond', serif; /* Изящные засечки для заголовков */
-    font-weight: 600;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
 }
 
+/* Header с правильным z-index */
 .gallery-header {
     text-align: center;
-    padding: 5rem 2rem 3rem;
+    padding: 6rem 2rem 4rem;
     position: relative;
+    z-index: 100; /* Защита от перекрытия контентом */
 }
 
 .gallery-header::after {
     content: '';
     display: block;
-    width: 60px;
-    height: 2px;
+    width: 80px;
+    height: 1px;
     background-color: var(--accent-color);
-    margin: 2rem auto 0;
-    opacity: 0.6;
+    margin: 2.5rem auto 0;
+    opacity: 0.7;
 }
 
 .gallery-header h1 {
-    font-size: 3.5rem;
-    margin-bottom: 0.5rem;
+    font-size: 4rem;
+    margin-bottom: 0.8rem;
     color: var(--accent-color);
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     text-transform: uppercase;
 }
 
 .gallery-header p {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     font-weight: 300;
     color: var(--text-muted);
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
 }
 
 .gallery-container {
-    max-width: 1200px;
+    max-width: 1280px;
     margin: 0 auto;
-    padding: 0 2rem 4rem;
+    padding: 0 2rem 5rem;
+    position: relative;
+    z-index: 10;
 }
 
 /* Фильтры */
@@ -69,18 +79,18 @@ h1, h2, h3, .faq-question {
     justify-content: center;
     flex-wrap: wrap;
     gap: 1.5rem;
-    margin-bottom: 4rem;
+    margin-bottom: 5rem;
 }
 
 .filter-btn {
     background: transparent;
     border: 1px solid var(--border-color);
     color: var(--text-muted);
-    padding: 0.6rem 2rem;
-    border-radius: 4px;
+    padding: 0.6rem 2.2rem;
+    border-radius: 50px;
     font-size: 0.95rem;
-    font-weight: 400;
-    letter-spacing: 1px;
+    font-weight: 300;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
     cursor: pointer;
     transition: all 0.4s ease;
@@ -91,67 +101,66 @@ h1, h2, h3, .faq-question {
 .filter-btn.active {
     border-color: var(--accent-color);
     color: var(--accent-color);
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.15); /* Мягкое золотое свечение */
+    background: rgba(220, 179, 108, 0.05);
+    box-shadow: 0 0 20px var(--glow-color);
 }
 
-/* Галерея: Асимметричная сетка */
+/* Галерея: Идеальная пропорциональная сетка без деформаций */
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 3rem;
-    grid-auto-rows: 380px;
-    align-items: center; /* Центрируем карточки по вертикали */
-}
-
-/* Делаем каждую вторую/третью карточку другого размера для асимметрии */
-.gallery-item:nth-child(2n) {
-    transform: translateY(30px);
-}
-.gallery-item:nth-child(3n) {
-    grid-row: span 2;
-    height: 100%;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 3.5rem;
+    align-items: start;
 }
 
 .gallery-item {
     position: relative;
     cursor: pointer;
     transition: transform 0.5s ease, opacity 0.5s ease;
+    width: 100%;
 }
 
-/* Эффект паспарту */
+/* Эффект элегантного паспарту с пропорцией (Aspect Ratio) */
 .passepartout {
-    background: #fdfbf7; /* Цвет светлого паспарту */
-    padding: 3% 3% 8% 3%; /* Поля паспарту (снизу чуть больше, классический стиль) */
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), inset 0 0 10px rgba(0,0,0,0.05);
-    border: 1px solid #111; /* Внешняя темная рамка багета */
+    background: #e8e4db; /* Цвет картона */
+    padding: 4%;
+    box-shadow: 0 15px 40px var(--shadow-color), inset 0 0 15px rgba(0,0,0,0.08);
+    border: 1px solid #0a0a0a;
     border-radius: 2px;
-    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    position: relative;
+    /* Устанавливаем строгую пропорцию для карточки, чтобы картинки внутри не растягивались */
+    aspect-ratio: 4 / 5;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Важно, чтобы картинка не выходила за границы рамки */
 }
 
 .passepartout:hover {
-    transform: scale(1.02);
+    transform: scale(1.03);
 }
 
+/* Картинка без деформации */
 .passepartout img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.5); /* Тень от выреза паспарту */
-    border: 1px solid rgba(0,0,0,0.1);
+    object-fit: cover; /* Строго обрезает, не растягивая */
+    object-position: center;
+    display: block;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.6);
+    border: 1px solid rgba(0,0,0,0.15);
 }
 
 .overlay {
     position: absolute;
-    inset: 3% 3% 8% 3%; /* Совпадает с вырезом паспарту */
-    background: rgba(18, 18, 18, 0.7);
+    inset: 4%; /* Точно по размеру фото внутри паспарту */
+    background: rgba(26, 26, 26, 0.7);
     display: flex;
     justify-content: center;
     align-items: center;
     opacity: 0;
-    transition: opacity 0.4s ease;
+    transition: opacity 0.5s ease;
 }
 
 .passepartout:hover .overlay {
@@ -161,12 +170,12 @@ h1, h2, h3, .faq-question {
 .overlay span {
     color: var(--accent-color);
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-style: italic;
     border-bottom: 1px solid var(--accent-color);
-    padding-bottom: 2px;
-    transform: translateY(10px);
-    transition: transform 0.4s ease;
+    padding-bottom: 3px;
+    transform: translateY(15px);
+    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .passepartout:hover .overlay span {
@@ -178,22 +187,22 @@ h1, h2, h3, .faq-question {
     display: none;
 }
 .gallery-item.show {
-    animation: fadeInGallery 0.6s ease;
+    animation: fadeInGallery 0.6s ease forwards;
 }
 
 @keyframes fadeInGallery {
-    from { opacity: 0; transform: scale(0.95); }
-    to { opacity: 1; transform: scale(1); }
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* Общие стили для секций (О художнике, FAQ, Контакты) */
 .about-artist, .faq-section, .contact-section {
-    margin-top: 6rem;
-    padding: 4rem;
+    margin-top: 7rem;
+    padding: 5rem;
     background: var(--card-bg);
     border: 1px solid var(--border-color);
-    border-radius: 4px; /* Убираем круглые края для более классического вида */
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    border-radius: 8px; /* Чуть смягченные углы для крафтового вида */
+    box-shadow: 0 25px 50px var(--shadow-color);
 }
 
 /* О художнике */
@@ -201,25 +210,25 @@ h1, h2, h3, .faq-question {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 4rem;
+    gap: 5rem;
 }
 
 .about-content {
     flex: 1;
-    min-width: 300px;
+    min-width: 320px;
 }
 
 .about-content h2, .faq-section h2, .contact-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
     color: var(--accent-color);
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
 }
 
 .about-content p, .faq-answer p, .contact-section p {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: var(--text-muted);
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.5rem;
     line-height: 1.8;
 }
 
@@ -229,36 +238,37 @@ h1, h2, h3, .faq-question {
 
 .about-image img {
     width: 320px;
-    height: 400px; /* Вертикальный портрет */
+    height: 400px;
     object-fit: cover;
     border: 1px solid var(--border-color);
-    padding: 10px; /* Эффект рамки */
+    padding: 12px;
     background: var(--bg-color);
-    filter: sepia(0.3) grayscale(0.2); /* Приглушаем цвета фото */
-    transition: filter 0.5s ease;
+    filter: sepia(0.2) contrast(1.1);
+    transition: filter 0.6s ease;
+    border-radius: 4px;
 }
 
 .about-image img:hover {
-    filter: sepia(0) grayscale(0);
+    filter: sepia(0) contrast(1);
 }
 
 /* FAQ */
 .faq-section h2 {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
 }
 
 .faq-container {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    max-width: 800px;
+    gap: 2rem;
+    max-width: 850px;
     margin: 0 auto;
 }
 
 .faq-item {
-    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
-    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(220, 179, 108, 0.15);
+    padding-bottom: 1.5rem;
 }
 
 .faq-question {
@@ -267,12 +277,13 @@ h1, h2, h3, .faq-question {
     background: transparent;
     border: none;
     color: var(--text-color);
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: color 0.3s ease;
+    transition: color 0.4s ease;
+    letter-spacing: 0.5px;
 }
 
 .faq-question:hover {
@@ -280,10 +291,10 @@ h1, h2, h3, .faq-question {
 }
 
 .faq-icon {
-    font-size: 1.5rem;
-    font-weight: 300;
+    font-size: 1.6rem;
+    font-weight: 400;
     color: var(--accent-color);
-    transition: transform 0.3s ease;
+    transition: transform 0.4s ease;
 }
 
 .faq-item.active .faq-question {
@@ -293,12 +304,12 @@ h1, h2, h3, .faq-question {
 .faq-answer {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.4s ease, margin-top 0.4s ease;
+    transition: max-height 0.5s ease, margin-top 0.5s ease;
 }
 
 .faq-item.active .faq-answer {
-    max-height: 300px;
-    margin-top: 1rem;
+    max-height: 400px;
+    margin-top: 1.5rem;
 }
 
 /* Контакты */
@@ -307,49 +318,51 @@ h1, h2, h3, .faq-question {
 }
 
 .contact-section p {
-    max-width: 600px;
-    margin: 0 auto 3rem;
+    max-width: 650px;
+    margin: 0 auto 4rem;
 }
 
 .contact-links {
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    gap: 2.5rem;
     flex-wrap: wrap;
 }
 
 .contact-btn {
     text-decoration: none;
-    padding: 0.8rem 2.5rem;
+    padding: 1rem 3rem;
     border: 1px solid var(--border-color);
     color: var(--text-color);
-    font-size: 1rem;
+    font-size: 1.05rem;
     font-weight: 300;
-    letter-spacing: 2px;
+    letter-spacing: 2.5px;
     text-transform: uppercase;
-    transition: all 0.4s ease;
+    transition: all 0.5s ease;
     background: transparent;
+    border-radius: 50px;
 }
 
 .contact-btn:hover {
     border-color: var(--accent-color);
     color: var(--accent-color);
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.15); /* Мягкое свечение */
-    transform: translateY(-2px);
+    background: rgba(220, 179, 108, 0.05);
+    box-shadow: 0 0 25px var(--glow-color);
+    transform: translateY(-3px);
 }
 
 /* Модальное окно */
 .modal {
     display: none;
     position: fixed;
-    z-index: 1000;
+    z-index: 1000; /* Строгий контроль слоя, всегда сверху */
     inset: 0;
-    background-color: rgba(18, 18, 18, 0.95);
+    background-color: rgba(10, 10, 10, 0.95);
     justify-content: center;
     align-items: center;
     padding: 2rem;
     opacity: 0;
-    transition: opacity 0.4s ease;
+    transition: opacity 0.5s ease;
 }
 
 .modal.active {
@@ -360,10 +373,11 @@ h1, h2, h3, .faq-question {
 .modal-content {
     max-width: 90%;
     max-height: 90vh;
-    border: 10px solid #fdfbf7; /* Имитация белой рамки */
-    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+    border: 12px solid #e8e4db;
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.9);
     transform: scale(0.95);
-    transition: transform 0.4s ease;
+    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    object-fit: contain; /* Чтобы большое изображение не искажалось */
 }
 
 .modal.active .modal-content {
@@ -375,10 +389,11 @@ h1, h2, h3, .faq-question {
     top: 30px;
     right: 50px;
     color: var(--text-muted);
-    font-size: 40px;
+    font-size: 45px;
     font-weight: 300;
     cursor: pointer;
-    transition: color 0.3s ease;
+    transition: color 0.4s ease;
+    z-index: 1001; /* Поверх всего модального окна */
 }
 
 .close-btn:hover {
@@ -388,8 +403,8 @@ h1, h2, h3, .faq-question {
 /* Анимации при прокрутке */
 .scroll-animate {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: translateY(40px);
+    transition: opacity 1.2s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .scroll-animate.visible {
@@ -402,21 +417,21 @@ h1, h2, h3, .faq-question {
     position: fixed;
     bottom: 40px;
     right: 40px;
-    width: 45px;
-    height: 45px;
+    width: 55px;
+    height: 55px;
     background: var(--card-bg);
     color: var(--accent-color);
     border: 1px solid var(--border-color);
     border-radius: 50%;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.4s ease;
-    z-index: 900;
+    transition: all 0.5s ease;
+    z-index: 900; /* Ниже модального окна, но выше контента */
 }
 
 #scrollTopBtn.show {
@@ -425,54 +440,58 @@ h1, h2, h3, .faq-question {
 }
 
 #scrollTopBtn:hover {
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+    box-shadow: 0 0 25px var(--glow-color);
     transform: translateY(-5px);
-    background: rgba(212, 175, 55, 0.1);
+    background: rgba(220, 179, 108, 0.1);
 }
 
 /* Адаптив */
-@media (max-width: 900px) {
-    .gallery-grid {
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        gap: 2rem;
-    }
-    
-    .gallery-item:nth-child(2n), .gallery-item:nth-child(3n) {
-        transform: translateY(0); /* Отключаем сильную асимметрию на малых экранах */
-        grid-row: auto;
-        height: auto;
+@media (max-width: 1024px) {
+    .about-artist, .faq-section, .contact-section {
+        padding: 4rem 3rem;
     }
 }
 
 @media (max-width: 768px) {
+    .gallery-header {
+        padding: 4rem 1.5rem 3rem;
+    }
+
     .gallery-header h1 {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
     }
     
-    .about-artist {
-        padding: 3rem 2rem;
-        flex-direction: column;
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
         gap: 2rem;
+    }
+
+    .about-artist {
+        padding: 3rem 1.5rem;
+        flex-direction: column;
+        gap: 2.5rem;
         text-align: center;
     }
     
     .about-image img {
         width: 100%;
-        max-width: 300px;
+        max-width: 320px;
         height: auto;
     }
 
     .faq-section, .contact-section {
-        padding: 3rem 2rem;
+        padding: 3rem 1.5rem;
     }
     
     .contact-links {
         flex-direction: column;
-        gap: 1rem;
+        gap: 1.5rem;
     }
     
     #scrollTopBtn {
-        bottom: 20px;
-        right: 20px;
+        bottom: 25px;
+        right: 25px;
+        width: 45px;
+        height: 45px;
     }
 }
