@@ -14,28 +14,36 @@
     </header>
 
     <main class="gallery-container">
+        <!-- Фильтры -->
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">Все</button>
+            <button class="filter-btn" data-filter="landscape">Пейзажи</button>
+            <button class="filter-btn" data-filter="portrait">Портреты</button>
+            <button class="filter-btn" data-filter="abstract">Абстракция</button>
+        </div>
+
         <div class="gallery-grid">
-            <div class="gallery-item" onclick="openModal(this)">
+            <div class="gallery-item" data-category="landscape" onclick="openModal(this)">
                 <img src="https://picsum.photos/seed/art1/800/1000" alt="Картина 1" loading="lazy">
                 <div class="overlay"><span>Увеличить</span></div>
             </div>
-            <div class="gallery-item" onclick="openModal(this)">
+            <div class="gallery-item" data-category="portrait" onclick="openModal(this)">
                 <img src="https://picsum.photos/seed/art2/800/1000" alt="Картина 2" loading="lazy">
                 <div class="overlay"><span>Увеличить</span></div>
             </div>
-            <div class="gallery-item" onclick="openModal(this)">
+            <div class="gallery-item" data-category="abstract" onclick="openModal(this)">
                 <img src="https://picsum.photos/seed/art3/1000/800" alt="Картина 3" loading="lazy">
                 <div class="overlay"><span>Увеличить</span></div>
             </div>
-            <div class="gallery-item" onclick="openModal(this)">
+            <div class="gallery-item" data-category="landscape" onclick="openModal(this)">
                 <img src="https://picsum.photos/seed/art4/800/1000" alt="Картина 4" loading="lazy">
                 <div class="overlay"><span>Увеличить</span></div>
             </div>
-            <div class="gallery-item" onclick="openModal(this)">
+            <div class="gallery-item" data-category="portrait" onclick="openModal(this)">
                 <img src="https://picsum.photos/seed/art5/1000/800" alt="Картина 5" loading="lazy">
                 <div class="overlay"><span>Увеличить</span></div>
             </div>
-            <div class="gallery-item" onclick="openModal(this)">
+            <div class="gallery-item" data-category="abstract" onclick="openModal(this)">
                 <img src="https://picsum.photos/seed/art6/800/1000" alt="Картина 6" loading="lazy">
                 <div class="overlay"><span>Увеличить</span></div>
             </div>
