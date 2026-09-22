@@ -49,3 +49,20 @@ filterButtons.forEach(button => {
         });
     });
 });
+
+// FAQ logic
+const faqQuestions = document.querySelectorAll('.faq-question');
+
+faqQuestions.forEach(question => {
+    question.addEventListener('click', () => {
+        const item = question.parentElement;
+        item.classList.toggle('active');
+        
+        const icon = question.querySelector('.faq-icon');
+        if (item.classList.contains('active')) {
+            icon.textContent = '-';
+        } else {
+            icon.textContent = '+';
+        }
+    });
+});
