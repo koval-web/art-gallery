@@ -15,14 +15,14 @@
 
     <main class="gallery-container">
         <!-- Фильтры -->
-        <div class="filters">
+        <div class="filters scroll-animate">
             <button class="filter-btn active" data-filter="all">Все</button>
             <button class="filter-btn" data-filter="landscape">Пейзажи</button>
             <button class="filter-btn" data-filter="portrait">Портреты</button>
             <button class="filter-btn" data-filter="abstract">Абстракция</button>
         </div>
 
-        <div class="gallery-grid">
+        <div class="gallery-grid scroll-animate">
             <div class="gallery-item" data-category="landscape" onclick="openModal(this)">
                 <img src="https://picsum.photos/seed/art1/800/1000" alt="Картина 1" loading="lazy">
                 <div class="overlay"><span>Увеличить</span></div>
@@ -49,7 +49,7 @@
             </div>
         </div>
 
-        <section class="about-artist">
+        <section class="about-artist scroll-animate">
             <div class="about-content">
                 <h2>О художнике</h2>
                 <p>Добро пожаловать в мой мир искусства! Меня зовут Александр, и я посвятил свою жизнь поиску красоты в повседневных мелочах. Мой творческий путь начался еще в детстве, когда я впервые взял в руки кисть. С тех пор каждая картина — это отражение моих эмоций, путешествий и глубоких размышлений.</p>
@@ -59,7 +59,7 @@
                 <img src="https://picsum.photos/seed/artist/400/400" alt="Фото художника" loading="lazy">
             </div>
         </section>
-        <section class="faq-section">
+        <section class="faq-section scroll-animate">
             <h2>Частые вопросы</h2>
             <div class="faq-container">
                 <div class="faq-item">
@@ -83,7 +83,7 @@
             </div>
         </section>
         
-        <section class="contact-section">
+        <section class="contact-section scroll-animate">
             <h2>Свяжитесь со мной</h2>
             <p>Понравились работы? Открыт к сотрудничеству и заказам. Напишите мне в социальных сетях или на электронную почту!</p>
             <div class="contact-links">
@@ -93,6 +93,9 @@
             </div>
         </section>
     </main>
+
+    <!-- Кнопка наверх -->
+    <button id="scrollTopBtn" title="Наверх">&#8593;</button>
 
     <!-- Модальное окно -->
     <div id="imageModal" class="modal" onclick="closeModal()">
