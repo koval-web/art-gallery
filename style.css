@@ -1,21 +1,9 @@
-html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    min-height: 100vh;
-    background-color: #121212 !important;
-    color: #e0e0e0 !important;
-    font-family: 'Cormorant Garamond', serif;
-}
-
-body {
-    padding: 50px 20px;
-}
-
-/* Шапка */
+/* Жесткое центрирование хедера и фильтров */
 header {
-    text-align: center;
-    margin-bottom: 50px;
+    text-align: center !important;
+    margin: 0 auto 50px auto !important;
+    max-width: 1200px;
+    width: 100%;
 }
 
 header h1 {
@@ -23,41 +11,26 @@ header h1 {
     margin: 0 0 10px 0;
     letter-spacing: 2px;
     color: #f5f5f5;
+    text-align: center;
 }
 
 header p {
     font-size: 1.1rem;
     color: #a0a0a0;
-    margin: 0 0 30px 0;
+    margin: 0 auto 30px auto;
+    text-align: center;
 }
 
-/* Фильтры */
 .filters {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 12px;
     flex-wrap: wrap;
+    width: 100%;
 }
 
-.filter-btn {
-    background: transparent;
-    border: 1px solid #444;
-    color: #ccc;
-    padding: 8px 20px;
-    cursor: pointer;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1rem;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-}
-
-.filter-btn:hover, .filter-btn.active {
-    border-color: #d4af37;
-    color: #d4af37;
-    background: rgba(212, 175, 55, 0.05);
-}
-
-/* Сетка галереи */
+/* Идеальная симметричная сетка */
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -74,7 +47,6 @@ header p {
     overflow: hidden;
     background: #1a1a1a;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-    transition: transform 0.3s ease;
 }
 
 .gallery-item img {
@@ -83,22 +55,4 @@ header p {
     object-fit: cover;
     object-position: center;
     display: block;
-    transition: transform 0.5s ease;
-}
-
-.gallery-item:hover img {
-    transform: scale(1.04);
-}
-
-/* Адаптивность */
-@media (max-width: 900px) {
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 600px) {
-    .gallery-grid {
-        grid-template-columns: 1fr;
-    }
 }
