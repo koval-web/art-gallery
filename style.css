@@ -3,15 +3,49 @@ html, body {
     padding: 0;
     width: 100%;
     min-height: 100vh;
-    background-color: #121212 !important;
-    color: #e0e0e0 !important;
+    background-color: #121212;
+    color: #e0e0e0;
     font-family: 'Cormorant Garamond', serif;
 }
 
 body {
-    background-image: none !important;
+    padding: 40px;
 }
 
-h1, h2, h3, p, span, a {
-    color: #e0e0e0 !important;
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+.gallery-item {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #1e1e1e;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+@media (max-width: 900px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
 }
